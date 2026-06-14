@@ -42,6 +42,16 @@ Console Output: Game outputs: "Go higher"
 #FIX: Refactored logic into logic_utils.py using agent mode and added a test case: 
             if guess > secret:
             return "Too High", "📉 Go LOWER!"
+
+Issue #2 Score increases after a wrong (too high) guess on even attempt
+Input: Guess 90, Secret 34 (second guess of the game)
+Expected Behavior: Score should decrease by 5 for a wrong guess
+Actual Behavior: Score increases by 5 
+Console Output: Score goes up instead of down after "Too High"
+#FIX: Removed in update_score so a "Too High" guess always subtracts:
+            if outcome == "Too High":
+            return current_score - 5
+
 ---
 
 ## 2. How did you use AI as a teammate?
