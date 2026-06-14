@@ -5,6 +5,14 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 ## 1. What was broken when you started?
 
 - What did the game look like the first time you ran it?
+The server opened up:
+2026-06-14 13:19:11.431 Uvicorn server started on 0.0.0.0:8501
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://XXX.XXX.XX.XXX:XXXX
+
 - List at least two concrete bugs you noticed at the start  
   (for example: "the hints were backwards").
 
@@ -18,6 +26,22 @@ Document at least 3 bugs you found. Add rows as needed.
 | | | | |
 | | | | |
 
+Issue #1 The hint asks to go lower with low input and higher with high input
+Input: 30 Secret: 47
+Expected Behavior: The hint should say go higher
+Actual Behavior: The hint says go lower
+Console Output: Game outputs: "Go lower"
+#FIX: Refactored logic into logic_utils.py using agent mode and added a test case:  
+            if guess < secret:
+            return "Too Low", "📈 Go HIGHER!"
+
+Input: 90 Secret: 63
+Expected Behavior: The hint should say go lower
+Actual Behavior: The hint should say go higher
+Console Output: Game outputs: "Go higher"
+#FIX: Refactored logic into logic_utils.py using agent mode and added a test case: 
+            if guess > secret:
+            return "Too High", "📉 Go LOWER!"
 ---
 
 ## 2. How did you use AI as a teammate?
