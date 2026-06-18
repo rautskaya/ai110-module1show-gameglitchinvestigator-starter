@@ -33,21 +33,22 @@ It wrote the code, ran away, and now the game is unplayable.
 
 Describe your fixed game in numbered steps so a reader can follow along without watching a video:
 
-1. <!-- Describe this step -->
-2. <!-- Describe this step -->
-3. <!-- Describe this step -->
-4. <!-- Describe this step -->
-5. <!-- Add more steps as needed -->
+1. Run the app with `streamlit run app.py` and the game opens in the browser.
+2. Pick a difficulty in the sidebar (Easy, Normal, or Hard), which sets the number range and how many attempts you get.
+3. Type a guess and click "Submit Guess". The game tells you if you won, or gives a hint to go higher or lower.
+4. The hints now point the right way, and your score goes down by 5 for a wrong guess and up when you win.
+5. Keep guessing until you win or run out of attempts. The score and history update each turn.
+6. Click "New Game" to start over with a fresh secret number and a cleared history.
 
 **Screenshot** *(optional)*: <!-- Insert a screenshot of your fixed, winning game here -->
 
 ## 🧪 Test Results
 
-```
-# Paste your pytest output here, e.g.:
-# pytest tests/
-# ========================= X passed in 0.XXs =========================
-```
+collected 4 items
+
+tests/test_game_logic.py ....                                            [100%]
+
+============================== 4 passed in 0.01s ===============================
 
 ## 🚀 Stretch Features
 
